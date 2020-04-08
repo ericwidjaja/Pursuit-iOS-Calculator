@@ -16,12 +16,13 @@ class ViewController: UIViewController {
     
     @IBAction func numbers(_ sender: UIButton) {
         
+        let selectedTag = sender.tag
+        resultLabel.text = String(selectedTag - 1)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
-        resultLabel.text = "It's showing"
+        view.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
     }
 
 
