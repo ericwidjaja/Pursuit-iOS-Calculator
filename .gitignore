@@ -1,0 +1,9 @@
+## User settings
+xcuserdata/
+.DS_Store
+
+## Secrets
+Secrets
+
+##CocoaPods
+Pods
