@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         
         //AC = All Clear button pressed (tag=11)
         if operatorsTag == 11 {
-            resultLabel.text = String(0)
+            resultLabel.text = ""
             numbersOnDisplay = 0
             previousNumbers = 0
             operation = 0
@@ -88,8 +88,26 @@ class ViewController: UIViewController {
         
         } else if operatorsTag == 18 {
             isPerformingOperation = true
+            //Todo: Calculation Logic for operators buttons
             
-            resultLabel.text = "="
+            if operation == 17 { // addition
+                resultLabel.text = String(previousNumbers + numbersOnDisplay)
+//                print(resultLabel.text)
+            } else if operation == 16 { // subtraction
+                resultLabel.text = String(previousNumbers - numbersOnDisplay)
+                
+            } else if operation == 15 { //multiplication
+                resultLabel.text = String(previousNumbers * numbersOnDisplay)
+                
+            } else if operation == 14 { // / = division
+                resultLabel.text = String(previousNumbers / numbersOnDisplay)
+                
+            } else if operation == 13 { //%
+                resultLabel.text = String(((previousNumbers - numbersOnDisplay) / previousNumbers) * 100)
+                
+            } else if operation == 12 { // +/-
+                
+            }
             
         }
         
