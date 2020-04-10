@@ -63,12 +63,19 @@ class ViewController: UIViewController {
          addition button's tag = 17
          equal button's tag = 18
          */
+        if operatorsTag == 13 {
+            isPerformingOperation = true
+            previousNumbers = Double(resultLabel.text!)!
+            operation = operatorsTag
+            let percentage: (_ previousNumbers: Double) -> (Double) = {($0 / 100)}
+            resultLabel.text = String(percentage(previousNumbers))
+        }
+        
         if operatorsTag == 14 {
             isPerformingOperation = true
             previousNumbers = Double(resultLabel.text!)!
             resultLabel.text = "/"
             operation = operatorsTag
-            
             
         } else if operatorsTag == 15 {
             isPerformingOperation = true
@@ -87,7 +94,6 @@ class ViewController: UIViewController {
             previousNumbers = Double(resultLabel.text!)!
             resultLabel.text = "+"
             operation = operatorsTag
-            
             
         } else if operatorsTag == 18 {
             isPerformingOperation = true
@@ -111,9 +117,7 @@ class ViewController: UIViewController {
                 resultLabel.text = String(division(previousNumbers, numbersOnDisplay))
                 
             } else if operation == 13 { //%
-                //                let percentageNum = (previousNumbers - 0) / 100
-                //
-                //                resultLabel.text = String(percentageNum)
+                print(previousNumbers)
                 
             } else if operation == 12 { // +/-
                 
