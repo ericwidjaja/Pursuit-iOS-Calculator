@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     var operation = 0
     var isPerformingOperation = false
     
+    
+    
     @IBOutlet weak var resultLabel: UILabel!
     
     @IBAction func numbers(_ sender: UIButton) {
@@ -79,21 +81,24 @@ class ViewController: UIViewController {
             previousNumbers = Double(resultLabel.text!)!
             resultLabel.text = "-"
             operation = operatorsTag
-        
+            
         } else if operatorsTag == 17 {
             isPerformingOperation = true
             previousNumbers = Double(resultLabel.text!)!
             resultLabel.text = "+"
             operation = operatorsTag
-        
+            
+            
         } else if operatorsTag == 18 {
             isPerformingOperation = true
             //Todo: Calculation Logic for operators buttons
             
             if operation == 17 { // addition
-                resultLabel.text = String(previousNumbers + numbersOnDisplay)
-//                print(resultLabel.text)
+                let adds: (_ previousNumbers: Double, _ numbersOnDisplay: Double) -> (Double) = { ($0 + $1) }
+                resultLabel.text = String(adds(previousNumbers, numbersOnDisplay))
+        
             } else if operation == 16 { // subtraction
+                
                 resultLabel.text = String(previousNumbers - numbersOnDisplay)
                 
             } else if operation == 15 { //multiplication
@@ -103,7 +108,9 @@ class ViewController: UIViewController {
                 resultLabel.text = String(previousNumbers / numbersOnDisplay)
                 
             } else if operation == 13 { //%
-                resultLabel.text = String(((previousNumbers - numbersOnDisplay) / previousNumbers) * 100)
+                //                let percentageNum = (previousNumbers - 0) / 100
+                //
+                //                resultLabel.text = String(percentageNum)
                 
             } else if operation == 12 { // +/-
                 
@@ -118,7 +125,5 @@ class ViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
         resultLabel.text = ""
     }
-    
-    
 }
 
