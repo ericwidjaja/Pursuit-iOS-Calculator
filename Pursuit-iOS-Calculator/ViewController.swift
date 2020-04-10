@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     var previousNumbers: Double = 0
     var operation = 0
     var isPerformingOperation = false
-    
+    var decimalWasUsed = false
     
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -30,8 +30,10 @@ class ViewController: UIViewController {
         
         if isPerformingOperation == true {
             isPerformingOperation = false
-            
-            print(numbersTag)//to check the value
+            if decimalWasUsed == true {
+                resultLabel.text = String(numbersTag - 1)
+                numbersOnDisplay = Double(resultLabel.text!)!
+            }
             resultLabel.text = String(numbersTag - 1)
             numbersOnDisplay = Double(resultLabel.text!)!
             
@@ -63,6 +65,7 @@ class ViewController: UIViewController {
          addition button's tag = 17
          equal button's tag = 18
          */
+        
         if operatorsTag == 13 {
             isPerformingOperation = true
             previousNumbers = Double(resultLabel.text!)!
@@ -114,7 +117,7 @@ class ViewController: UIViewController {
                 
             } else if operation == 14 { //division
                 let division: (_ previousNumbers: Double,_ numbersOnDisplay: Double) -> (Double) = {$0 / $1}
-                resultLabel.text = String(division(previousNumbers, numbersOnDisplay))
+                resultLabel.text = String(format: "%.2f", division(previousNumbers, numbersOnDisplay))
                 
             } else if operation == 13 { //%
                 print(previousNumbers)
