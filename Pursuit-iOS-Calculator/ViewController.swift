@@ -3,13 +3,6 @@
 //  Created by Eric Widjaja on 4/7/20.
 //  Copyright © 2020 Eric Widjaja. All rights reserved.
 
-/*  12 + 23 = 35?
- previousNumbers
- numbersOnDisplay
- isPerformingOperation
- operation +, -, /, *
- */
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -30,15 +23,16 @@ class ViewController: UIViewController {
         
         if isPerformingOperation == true {
             isPerformingOperation = false
-            if decimalWasUsed == true {
-                resultLabel.text = String(numbersTag - 1)
-                numbersOnDisplay = Double(resultLabel.text!)!
-            }
+//            if decimalWasUsed == true {
+//                resultLabel.text = String(numbersTag - 1) + "."
+//                print(resultLabel.text)
+//                numbersOnDisplay = Double(resultLabel.text!)!
+//            }
             resultLabel.text = String(numbersTag - 1)
             numbersOnDisplay = Double(resultLabel.text!)!
             
         } else {
-            print(numbersTag)//to check the value
+
             resultLabel.text = resultLabel.text! + String(numbersTag - 1)
             numbersOnDisplay = Double(resultLabel.text!)!
         }
