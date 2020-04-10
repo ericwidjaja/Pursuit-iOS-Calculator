@@ -98,14 +98,17 @@ class ViewController: UIViewController {
                 resultLabel.text = String(adds(previousNumbers, numbersOnDisplay))
         
             } else if operation == 16 { // subtraction
-                
-                resultLabel.text = String(previousNumbers - numbersOnDisplay)
+                let subtraction: (_ previousNumbers: Double, _ numbersOnDisplay: Double) -> (Double) = { ($0 - $1) }
+                resultLabel.text = String(subtraction(previousNumbers, numbersOnDisplay))
                 
             } else if operation == 15 { //multiplication
-                resultLabel.text = String(previousNumbers * numbersOnDisplay)
+                let multiplication: (_ previousNumbers: Double,_ numbersOnDisplay: Double) -> (Double) = { ($0 * $1)
+                }
+                resultLabel.text = String(multiplication(previousNumbers,numbersOnDisplay))
                 
-            } else if operation == 14 { // / = division
-                resultLabel.text = String(previousNumbers / numbersOnDisplay)
+            } else if operation == 14 { //division
+                let division: (_ previousNumbers: Double,_ numbersOnDisplay: Double) -> (Double) = {$0 / $1}
+                resultLabel.text = String(division(previousNumbers, numbersOnDisplay))
                 
             } else if operation == 13 { //%
                 //                let percentageNum = (previousNumbers - 0) / 100
