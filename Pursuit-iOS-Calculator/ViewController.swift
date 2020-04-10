@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         
         //AC = All Clear button pressed (tag=11)
         if operatorsTag == 11 {
-            resultLabel.text = ""
+            resultLabel.text = "0"
             numbersOnDisplay = 0
             previousNumbers = 0
             operation = 0
