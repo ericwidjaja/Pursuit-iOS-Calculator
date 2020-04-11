@@ -53,12 +53,15 @@ class ViewController: UIViewController {
             
             return //no more operation after return inside this block of 'if ... { ... }
         }
-        /* division button's tag = 14
-         multiplication button's tag = 15
-         subtraction button's tag = 16
-         addition button's tag = 17
-         equal button's tag = 18
-         */
+        
+        if operatorsTag == 12 {
+            isPerformingOperation = true
+            operation = operatorsTag
+            
+            resultLabel.text = "\(previousNumbers)"
+            
+        }
+
         
         if operatorsTag == 13 {
             isPerformingOperation = true
