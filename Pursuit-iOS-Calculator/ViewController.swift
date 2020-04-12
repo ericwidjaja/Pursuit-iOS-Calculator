@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var operation = 0
     var isPerformingOperation = false
     var decimalWasUsed = false
+    var calculatorOperator = Calculator()
     
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -100,21 +101,21 @@ class ViewController: UIViewController {
             //Todo: Calculation Logic for operators buttons
             
             if operation == 17 { // addition
-                let adds: (_ previousNumbers: Double, _ numbersOnDisplay: Double) -> (Double) = { ($0 + $1) }
-                resultLabel.text = String(adds(previousNumbers, numbersOnDisplay))
+
+                let add = calculatorOperator.addition
+                resultLabel.text = String(add(previousNumbers, numbersOnDisplay))
         
             } else if operation == 16 { // subtraction
-                let subtraction: (_ previousNumbers: Double, _ numbersOnDisplay: Double) -> (Double) = { ($0 - $1) }
-                resultLabel.text = String(subtraction(previousNumbers, numbersOnDisplay))
+                let subtract = calculatorOperator.subtraction
+                resultLabel.text = String(subtract(previousNumbers, numbersOnDisplay))
                 
             } else if operation == 15 { //multiplication
-                let multiplication: (_ previousNumbers: Double,_ numbersOnDisplay: Double) -> (Double) = { ($0 * $1)
-                }
-                resultLabel.text = String(multiplication(previousNumbers,numbersOnDisplay))
+                let multiply = calculatorOperator.multiplication
+                resultLabel.text = String(multiply(previousNumbers,numbersOnDisplay))
                 
             } else if operation == 14 { //division
-                let division: (_ previousNumbers: Double,_ numbersOnDisplay: Double) -> (Double) = {$0 / $1}
-                resultLabel.text = String(format: "%.2f", division(previousNumbers, numbersOnDisplay))
+                let divide = calculatorOperator.division
+                resultLabel.text = String(format: "%.2f", divide(previousNumbers, numbersOnDisplay))
                 
             } else if operation == 13 { //%
                 print(previousNumbers)
