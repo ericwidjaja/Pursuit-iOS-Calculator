@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     var decimalWasUsed = false
     var calculatorOperator = Calculator()
     
-    
+    //MARK: - Outlets / Actions
     @IBOutlet weak var resultLabel: UILabel!
     
     @IBAction func numbers(_ sender: UIButton) {
@@ -24,16 +24,16 @@ class ViewController: UIViewController {
         
         if isPerformingOperation == true {
             isPerformingOperation = false
-//            if decimalWasUsed == true {
-//                resultLabel.text = String(numbersTag - 1) + "."
-//                print(resultLabel.text)
-//                numbersOnDisplay = Double(resultLabel.text!)!
-//            }
+            //            if decimalWasUsed == true {
+            //                resultLabel.text = String(numbersTag - 1) + "."
+            //                print(resultLabel.text)
+            //                numbersOnDisplay = Double(resultLabel.text!)!
+            //            }
             resultLabel.text = String(numbersTag - 1)
             numbersOnDisplay = Double(resultLabel.text!)!
             
         } else {
-
+            
             resultLabel.text = resultLabel.text! + String(numbersTag - 1)
             numbersOnDisplay = Double(resultLabel.text!)!
         }
@@ -58,18 +58,17 @@ class ViewController: UIViewController {
         if operatorsTag == 12 {
             isPerformingOperation = true
             operation = operatorsTag
-            
+            //TODO: put + / - in front of the Integers
             resultLabel.text = "\(previousNumbers)"
             
         }
-
         
         if operatorsTag == 13 {
             isPerformingOperation = true
             previousNumbers = Double(resultLabel.text!)!
             operation = operatorsTag
-            let percentage: (_ previousNumbers: Double) -> (Double) = {($0 / 100)}
-            resultLabel.text = String(percentage(previousNumbers))
+            let percent = calculatorOperator.percentage
+            resultLabel.text = String(format: "%.3f" , percent(previousNumbers))
         }
         
         if operatorsTag == 14 {
@@ -98,13 +97,12 @@ class ViewController: UIViewController {
             
         } else if operatorsTag == 18 {
             isPerformingOperation = true
-            //Todo: Calculation Logic for operators buttons
             
             if operation == 17 { // addition
-
+                
                 let add = calculatorOperator.addition
                 resultLabel.text = String(add(previousNumbers, numbersOnDisplay))
-        
+                
             } else if operation == 16 { // subtraction
                 let subtract = calculatorOperator.subtraction
                 resultLabel.text = String(subtract(previousNumbers, numbersOnDisplay))
@@ -118,12 +116,12 @@ class ViewController: UIViewController {
                 resultLabel.text = String(format: "%.2f", divide(previousNumbers, numbersOnDisplay))
                 
             } else if operation == 13 { //%
-                print(previousNumbers)
+                let percent = calculatorOperator.percentage
+                resultLabel.text = String(format: "%.3f" , percent(previousNumbers))
                 
             } else if operation == 12 { // +/-
                 
             }
-            
         }
         
     }

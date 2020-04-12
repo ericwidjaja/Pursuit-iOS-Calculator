@@ -17,4 +17,6 @@ class Calculator {
     let multiplication: (_ previousNumbers: Double, _ numbersOnDisplay: Double) -> (Double) = {($0 * $1)}
     
     let division: (_ previousNumbers: Double, _ numbersOnDisplay: Double) -> (Double) = {($0 / $1)}
+    
+    let percentage: (_ previousNumbers: Double) -> (Double) = { ($0 / 100) }
 }

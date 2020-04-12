@@ -83,9 +83,9 @@
 			children = (
 				DF567A28243D788F00C94B39 /* AppDelegate.swift */,
 				DF567A2A243D788F00C94B39 /* SceneDelegate.swift */,
-				DF567A2C243D788F00C94B39 /* ViewController.swift */,
-				DFC994B72443792900B329B6 /* CalculatorModel.swift */,
-				DF567A2E243D788F00C94B39 /* Main.storyboard */,
+				DFC994B92443A76A00B329B6 /* Model */,
+				DFC994BB2443A78A00B329B6 /* View */,
+				DFC994BA2443A77D00B329B6 /* Controller */,
 				DF567A31243D789B00C94B39 /* Assets.xcassets */,
 				DF567A33243D789B00C94B39 /* LaunchScreen.storyboard */,
 				DF567A36243D789B00C94B39 /* Info.plist */,
@@ -100,6 +100,30 @@
 				DF567A41243D789B00C94B39 /* Info.plist */,
 			);
 			path = "Pursuit-iOS-CalculatorTests";
+			sourceTree = "<group>";
+		};
+		DFC994B92443A76A00B329B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DFC994B72443792900B329B6 /* CalculatorModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DFC994BA2443A77D00B329B6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DF567A2C243D788F00C94B39 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DFC994BB2443A78A00B329B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DF567A2E243D788F00C94B39 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
