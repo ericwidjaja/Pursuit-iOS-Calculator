@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     //MARK: - Outlets / Actions
     @IBOutlet weak var resultLabel: UILabel!
     
+    
+    
     @IBAction func numbers(_ sender: UIButton) {
         
         let numbersTag = sender.tag
@@ -33,13 +35,10 @@ class ViewController: UIViewController {
             numbersOnDisplay = Double(resultLabel.text!)!
             
         } else {
-            
             resultLabel.text = resultLabel.text! + String(numbersTag - 1)
             numbersOnDisplay = Double(resultLabel.text!)!
         }
-        
     }
-    
     
     @IBAction func operatorButtonPressed(_ sender: UIButton) {
         
@@ -58,9 +57,8 @@ class ViewController: UIViewController {
         if operatorsTag == 12 {
             isPerformingOperation = true
             operation = operatorsTag
-            //TODO: put + / - in front of the Integers
-            resultLabel.text = "\(previousNumbers)"
-            
+            //TODO: delete one character
+            resultLabel.text = "  \(numbersOnDisplay)"
         }
         
         if operatorsTag == 13 {
@@ -105,11 +103,11 @@ class ViewController: UIViewController {
                 
             } else if operation == 16 { // subtraction
                 let subtract = calculatorOperator.subtraction
-                resultLabel.text = String(subtract(previousNumbers, numbersOnDisplay))
+                resultLabel.text = String(format: "%.2f", subtract(previousNumbers, numbersOnDisplay))
                 
             } else if operation == 15 { //multiplication
                 let multiply = calculatorOperator.multiplication
-                resultLabel.text = String(multiply(previousNumbers,numbersOnDisplay))
+                resultLabel.text = String(format: "%.2f", multiply(previousNumbers,numbersOnDisplay))
                 
             } else if operation == 14 { //division
                 let divide = calculatorOperator.division
@@ -120,12 +118,10 @@ class ViewController: UIViewController {
                 resultLabel.text = String(format: "%.3f" , percent(previousNumbers))
                 
             } else if operation == 12 { // +/-
-                
+                //TODO: delete a character
             }
         }
-        
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)

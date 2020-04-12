@@ -1,7 +1,5 @@
-//
 //  CalculatorModel.swift
 //  Pursuit-iOS-Calculator
-//
 //  Created by Eric Widjaja on 4/12/20.
 //  Copyright © 2020 Eric Widjaja. All rights reserved.
 //
