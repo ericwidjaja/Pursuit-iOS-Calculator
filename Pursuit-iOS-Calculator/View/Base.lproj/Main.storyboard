@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pursuit_iOS_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pursuit_iOS_Calculator" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,6 +233,9 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                     </preferredSymbolConfiguration>
                                 </state>
+                                <connections>
+                                    <action selector="backSpace:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Tp-lB-HUJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="13" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzg-ag-bLJ">
                                 <rect key="frame" x="206" y="344" width="101" height="110"/>

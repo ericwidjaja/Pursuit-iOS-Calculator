@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     
     
+    @IBAction func backSpace(_ sender: UIButton) {
+        if let numbersOnDisplay = resultLabel.text { resultLabel.text = String(numbersOnDisplay.dropLast())}
+    }
     
     @IBAction func numbers(_ sender: UIButton) {
         
