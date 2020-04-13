@@ -15,10 +15,11 @@ class ViewController: UIViewController {
     var decimalWasUsed = false
     var calculatorOperator = Calculator()
     
+    
     //MARK: - Outlets / Actions
     @IBOutlet weak var resultLabel: UILabel!
     
-    
+
     @IBAction func backSpace(_ sender: UIButton) {
         if let numbersOnDisplay = resultLabel.text { resultLabel.text = String(numbersOnDisplay.dropLast())}
     }
@@ -29,11 +30,7 @@ class ViewController: UIViewController {
         
         if isPerformingOperation == true {
             isPerformingOperation = false
-            //            if decimalWasUsed == true {
-            //                resultLabel.text = String(numbersTag - 1) + "."
-            //                print(resultLabel.text)
-            //                numbersOnDisplay = Double(resultLabel.text!)!
-            //            }
+
             resultLabel.text = String(numbersTag - 1)
             numbersOnDisplay = Double(resultLabel.text!)!
             
@@ -49,19 +46,11 @@ class ViewController: UIViewController {
         
         //AC = All Clear button pressed (tag=11)
         if operatorsTag == 11 {
-            resultLabel.text = "0"
+            resultLabel.text = ""
             numbersOnDisplay = 0
             previousNumbers = 0
             operation = 0
-            
-            return //no more operation after return inside this block of 'if ... { ... }
-        }
-        
-        if operatorsTag == 12 {
-            isPerformingOperation = true
-            operation = operatorsTag
-            //TODO: delete one character
-            resultLabel.text = "  \(numbersOnDisplay)"
+            return
         }
         
         if operatorsTag == 13 {
@@ -69,7 +58,7 @@ class ViewController: UIViewController {
             previousNumbers = Double(resultLabel.text!)!
             operation = operatorsTag
             let percent = calculatorOperator.percentage
-            resultLabel.text = String(format: "%.3f" , percent(previousNumbers))
+            resultLabel.text = String(format: "%.2f" , percent(previousNumbers))
         }
         
         if operatorsTag == 14 {
@@ -115,20 +104,17 @@ class ViewController: UIViewController {
             } else if operation == 14 { //division
                 let divide = calculatorOperator.division
                 resultLabel.text = String(format: "%.2f", divide(previousNumbers, numbersOnDisplay))
-                
-            } else if operation == 13 { //%
-                let percent = calculatorOperator.percentage
-                resultLabel.text = String(format: "%.3f" , percent(previousNumbers))
-                
-            } else if operation == 12 { // +/-
-                //TODO: delete a character
             }
         }
     }
+    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
         resultLabel.text = ""
+        resultLabel.layer.cornerRadius = 8
+        
     }
 }
 
